@@ -1,0 +1,19 @@
+{
+  "name": "pull-defer",
+  "description": "a deferred source, sink or through pull-stream",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dominictarr/pull-defer",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/pull-defer.git"
+  },
+  "dependencies": {
+    "pull-stream": "~2.26.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}
