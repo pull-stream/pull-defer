@@ -7,10 +7,12 @@ module.exports = function (stream) {
     if(started) stream(read)
   }
 
+  consume.resolve =
   consume.ready =
   consume.start = function (_stream) {
     started = true; stream = _stream || stream
     if(read) stream(read)
+    reutrn consume
   }
 
   return consume
