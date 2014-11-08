@@ -12,7 +12,7 @@ module.exports = function (stream) {
   consume.start = function (_stream) {
     started = true; stream = _stream || stream
     if(read) stream(read)
-    reutrn consume
+    return consume
   }
 
   return consume
