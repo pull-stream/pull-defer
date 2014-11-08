@@ -41,15 +41,15 @@ deferred.resolve(input)
 
 ``` js
 //create a deferred through stream
-var deferred = require('pull-defer').source()
+var deferred = require('pull-defer').sink()
 
 pull(
-  input
+  input,
   deferred
 )
 
-//nothing will happen until deferred.resolve(stream) is called.
-deferred.resolve(output)
+//nothing will happen until deferred.start(stream) is called.
+deferred.start(output)
 ```
 
 
