@@ -49,7 +49,7 @@ pull(
 )
 
 //nothing will happen until deferred.start(stream) is called.
-deferred.start(output)
+deferred.resolve(output)
 ```
 
 
