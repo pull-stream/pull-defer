@@ -1,20 +1,24 @@
 
 module.exports = function () {
-  var _read, cbs = [], _end
+  var _read, _cb, abortCb, _end
 
   var read = function (end, cb) {
     if(!_read) {
-      _end = end
-      cbs.push(cb)
-    } 
+      if(end) {
+        _end = end
+        abortCb = cb
+      }
+      else
+        _cb = cb
+    }
     else _read(end, cb)
   }
   read.resolve = function (read) {
     if(_read) throw new Error('already resolved')
     _read = read
     if(!_read) throw new Error('no read cannot resolve!' + _read)
-    while(cbs.length)
-      _read(_end, cbs.shift())
+    if(_cb) read(null, _cb)
+    if(abortCb) read(_end, abortCb)
   }
   read.abort = function(err) {
     read.resolve(function (_, cb) {
