@@ -39,3 +39,49 @@ tape('defer - resolve early', function (t) {
   )
 
 })
+
+tape('defer, abort before connecting', function (t) {
+
+  
+  var deferred = defer()
+
+  //abort the deferred stream immediately.
+  deferred(true, function () {
+    console.log('ended')
+    t.ok(true)
+  })
+
+  deferred.resolve(pull.values([1,2,3], function () {
+    console.log('aborted')
+    t.ok(true)
+    t.end()
+  }))
+
+})
+
+tape('defer, read and abort before connecting', function (t) {
+
+  
+  var deferred = defer(), ended = false
+
+  //queue a read immediately
+
+  deferred(null, function (end, data) {
+    t.notOk(end)
+    t.notOk(ended)
+    t.equal(data, 1)
+  })
+
+  //abort the deferred stream immediately.
+  deferred(true, function () {
+    t.ok(ended = true)
+  })
+
+  deferred.resolve(pull.values([1,2,3], function () {
+    console.log('aborted')
+    t.ok(true)
+    t.end()
+  }))
+
+})
+
