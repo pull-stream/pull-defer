@@ -7,11 +7,10 @@
     "type": "git",
     "url": "git://github.com/dominictarr/pull-defer.git"
   },
-  "dependencies": {
-    "pull-stream": "^2.28.4"
-  },
   "devDependencies": {
-    "pull-pair": "~1.0.0"
+    "pull-pair": "~1.0.0",
+    "pull-peek": "0.0.0",
+    "tape": "^4.5.1"
   },
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
@@ -19,3 +18,4 @@
   "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
   "license": "MIT"
 }
+
