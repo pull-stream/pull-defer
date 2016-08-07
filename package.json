@@ -7,10 +7,12 @@
     "type": "git",
     "url": "git://github.com/dominictarr/pull-defer.git"
   },
+  "dependencies": {
+    "pull-stream": "^3.2.0"
+  },
   "devDependencies": {
     "pull-pair": "~1.0.0",
     "pull-peek": "0.0.0",
-    "pull-stream": "^3.2.0",
     "tape": "^4.5.1"
   },
   "scripts": {

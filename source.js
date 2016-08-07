@@ -1,3 +1,4 @@
+var error = require('pull-stream/sources/error')
 
 module.exports = function () {
   var _read, _cb, abortCb, _end
@@ -21,9 +22,7 @@ module.exports = function () {
     if(abortCb) read(_end, abortCb)
   }
   read.abort = function(err) {
-    read.resolve(function (_, cb) {
-      cb(err || true)
-    })
+    read.resolve(error(err || true))
   }
   return read
 }
