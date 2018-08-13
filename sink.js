@@ -1,5 +1,5 @@
 module.exports = function (stream) {
-  var read, started = false, id = Math.random()
+  var read, started = false
 
   function consume (_read) {
     if(!_read) throw new Error('must be passed a readable')
