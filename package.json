@@ -1,7 +1,7 @@
 {
   "name": "pull-defer",
   "description": "a deferred source, sink or through pull-stream",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "homepage": "https://github.com/dominictarr/pull-defer",
   "repository": {
     "type": "git",
